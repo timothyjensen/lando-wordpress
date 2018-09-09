@@ -1,18 +1,25 @@
-name: wpsandbox
+name: wpsandbox # Name must be unique for each app!
 recipe: wordpress
 config:
   php: '7.1'
-  via: apache # or nginx
-  database: mysql:5.6
+  via: apache # Or nginx.
+  database: mysql:5.6 # Or mariadb, mysql:5.7, etc.
   conf:
     php: php.ini
 services:
   mailhog:
-    # Spin up a mailhog container called "mailhog".
-    type: mailhog
-    # Hog from appserver or nginx as appropriate.
-    hogfrom:
+    type: mailhog # Spin up a mailhog container called "mailhog".
+    hogfrom: # Hog from appserver or nginx as appropriate.
       - appserver
+  # pma:
+    # type: phpmyadmin # Spin up a phpmyadmin container called "pma".
+    # hosts:
+      # - database
+# events:
+  # pre-stop:
+    # - echo "Backing up database..."
+    # - wp db export --path=/app - | gzip > /app/db_backup.sql.gz
+    # - echo "Database successfully backed up"
 proxy:
   appserver:
-    - wpsandbox.test
+  - wpsandbox.test
