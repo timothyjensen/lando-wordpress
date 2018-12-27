@@ -11,15 +11,26 @@ services:
     type: mailhog # Spin up a mailhog container called "mailhog".
     hogfrom: # Hog from appserver or nginx as appropriate.
       - appserver
-  # pma:
-    # type: phpmyadmin # Spin up a phpmyadmin container called "pma".
-    # hosts:
-      # - database
-# events:
-  # pre-stop:
-    # - echo "Backing up database..."
-    # - wp db export --path=/app - | gzip > /app/db_backup.sql.gz
-    # - echo "Database successfully backed up"
+  pma:
+    type: phpmyadmin # Spin up a phpmyadmin container called "pma".
+    hosts:
+      - database
+  ## Uncomment this section if needed for system/integration tests.
+  #appserver:
+  #  run_as_root:
+  #    # Install subversion for running WP system tests.
+  #    - "apt-get update && apt-get install subversion -y"
+  #testdatabase:
+  #  type: mysql
+  #  creds:
+  #    user: phpunit
+  #    password: phpunit
+  #    database: phpunit
+events:
+  pre-stop:
+    - echo "Backing up database..."
+    - wp db export --path=/app - | gzip > /app/db_backup.sql.gz
+    - echo "Database successfully backed up"
 proxy:
   appserver:
-  - wpsandbox.test
+    - wpsandbox.test
