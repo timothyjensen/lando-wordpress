@@ -3,8 +3,9 @@ recipe: wordpress
 config:
   php: '7.2'
   via: apache # Or nginx.
-  database: mysql:5.6 # Or mariadb, mysql:5.7, etc.
-  conf:
+  database: mysql:5.7 # Or mariadb, etc.
+  xdebug: true
+  config:
     php: php.ini
 services:
   mailhog:
