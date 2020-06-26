@@ -9,8 +9,6 @@ These steps assume that Lando is already [installed](https://docs.lando.dev/basi
 1. Download a zipped copy of this repository and copy the `.lando.yml` and `php.ini` files to your project root.
 1. Open up `.lando.yml` and rename the app's `name` to something unique.
 1. Specify the desired PHP version, web server (apache or nginx), and database server (mysql, mariadb, or mongodb).
-1. Uncomment the `pma` service if you want to run PhpMyAdmin.
-1. Uncomment the `events` section if you would like to back up the database each time the containers are stopped.
 1. Change the proxy from `wpsandbox.test` to your desired domain.
 1. Update your hosts file so that the app's domain points to 127.0.0.1.
 1. Run the command `lando start` from the project root.
