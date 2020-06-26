@@ -10,7 +10,7 @@ These steps assume that Lando is already [installed](https://docs.lando.dev/basi
 1. Open up `.lando.yml` and rename the app's `name` to something unique.
 1. Specify the desired PHP version, web server (apache or nginx), and database server (mysql, mariadb, or mongodb).
 1. Change the proxy from `wpsandbox.test` to your desired domain.
-1. Update your hosts file so that the app's domain points to 127.0.0.1.
+1. Update your hosts file so that the app's domain points to 127.0.0.1 (`echo '127.0.0.1 wpsandbox.test' | sudo tee -a /etc/hosts`).
 1. Run the command `lando start` from the project root.
 
 ## Documentation
