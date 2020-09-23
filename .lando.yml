@@ -1,7 +1,7 @@
 name: wpsandbox # Name must be unique for each app!
 recipe: wordpress
 config:
-  php: '7.2'
+  php: '7.3'
   via: apache # Or nginx.
   database: mysql:5.7 # Or mariadb, etc.
   xdebug: true
