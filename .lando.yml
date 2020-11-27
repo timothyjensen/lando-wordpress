@@ -17,10 +17,13 @@ services:
     hosts:
       - database
   ## Uncomment this section if needed for system/integration tests.
-  #appserver:
-  #  run_as_root:
-  #    # Install subversion for running WP system tests.
-  #    - "apt-get update && apt-get install subversion -y"
+  appserver:
+    overrides:
+      environment:
+        PHP_IDE_CONFIG: "serverName=appserver"
+    #run_as_root:
+    #  # Install subversion for running WP system tests.
+    #  - "apt-get update && apt-get install subversion -y"
   #testdatabase:
   #  type: mysql
   #  creds:
