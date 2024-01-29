@@ -3,7 +3,7 @@ recipe: wordpress
 config:
   php: '8.2'
   via: apache # Or nginx.
-  database: mysql:5.7 # Or mariadb, etc.
+  database: mysql:8.0 # Or mariadb, etc.
   xdebug: true
   config:
     php: php.ini
