@@ -21,6 +21,7 @@ services:
     overrides:
       environment:
         PHP_IDE_CONFIG: "serverName=appserver"
+        XDEBUG_SESSION_START: true
     #run_as_root:
     #  # Install subversion for running WP system tests.
     #  - "apt-get update && apt-get install subversion -y"
