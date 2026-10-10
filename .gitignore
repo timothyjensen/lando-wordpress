@@ -1,5 +1,5 @@
 /*
 !.gitignore
 !.lando.yml
-!php.ini
+!local.php.ini
 !README.md

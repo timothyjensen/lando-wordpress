@@ -6,7 +6,7 @@ config:
   database: mysql:8.0 # Or mariadb, etc.
   xdebug: true
   config:
-    php: php.ini
+    php: local.php.ini
 services:
   mailhog:
     type: mailhog # Spin up a mailhog container called "mailhog".
